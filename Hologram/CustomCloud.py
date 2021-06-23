@@ -337,12 +337,12 @@ class CustomCloud(Cloud):
                 break
             recv += result
 
-        self.logger.info('Received message: %s', recv.decode())
+        self.logger.info('Received message: %s', recv)
 
         self._receive_buffer_lock.acquire()
 
         # Append received message into receive buffer
-        self._receive_buffer.append(recv.decode())
+        self._receive_buffer.append(recv)
         self.logger.debug('Receive buffer: %s', self._receive_buffer)
 
         self._receive_buffer_lock.release()
